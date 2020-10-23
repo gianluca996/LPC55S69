@@ -1,0 +1,11 @@
+core_cm4.h:1672:22:__NVIC_EnableIRQ	16	static
+core_cm4.h:1708:22:__NVIC_DisableIRQ	16	static
+fsl_common.h:363:28:EnableIRQ	16	static
+fsl_common.h:401:28:DisableIRQ	16	static
+host_msd_fatfs.c:148:6:USB_HostMsdControlCallback	32	static
+host_msd_fatfs.c:161:13:USB_HostMsdFatfsTestDone	8	static
+host_msd_fatfs.c:292:13:USB_HostMsdFatfsDisplayFileInfo	88	static
+host_msd_fatfs.c:316:16:USB_HostMsdFatfsListDirectory	88	static
+host_msd_fatfs.c:374:13:USB_HostMsdFatfsTest	2776	static
+host_msd_fatfs.c:754:6:USB_HostMsdTask	32	static
+host_msd_fatfs.c:825:14:USB_HostMsdEvent	48	static

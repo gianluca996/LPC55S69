@@ -1,0 +1,15 @@
+usb_host_hub.c:107:13:USB_HostHubControlCallback	40	static
+usb_host_hub.c:123:13:USB_HostHubInPipeCallback	40	static
+usb_host_hub.c:136:13:USB_HostHubResetCallback	32	static
+usb_host_hub.c:144:21:USB_HostHubClassRequestCommon	24	static
+usb_host_hub.c:199:14:USB_HostHubInit	24	static
+usb_host_hub.c:233:14:USB_HostHubSetInterface	64	static
+usb_host_hub.c:326:14:USB_HostHubDeinit	24	static
+usb_host_hub.c:377:14:USB_HostHubInterruptRecv	32	static
+usb_host_hub.c:423:14:USB_HostHubSendPortReset	24	static
+usb_host_hub.c:483:14:USB_HostHubGetDescriptor	48	static
+usb_host_hub.c:511:14:USB_HostHubClearFeature	48	static
+usb_host_hub.c:538:14:USB_HostHubGetStatus	48	static
+usb_host_hub.c:566:14:USB_HostHubSetPortFeature	48	static
+usb_host_hub.c:594:14:USB_HostHubClearPortFeature	48	static
+usb_host_hub.c:622:14:USB_HostHubGetPortStatus	48	static

@@ -1,0 +1,5 @@
+fsl_clock.h:631:20:CLOCK_EnableClock	24	static
+fsl_clock.h:642:20:CLOCK_DisableClock	24	static
+fsl_pit.c:63:17:PIT_GetInstance	24	static
+fsl_pit.c:81:6:PIT_Init	16	static
+fsl_pit.c:105:6:PIT_Deinit	16	static
