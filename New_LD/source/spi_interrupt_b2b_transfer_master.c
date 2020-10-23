@@ -72,7 +72,7 @@ int main(void) {
 	ghw_cont_set(70);
 	gsetpos(5,10);
 	//gputs("Test OK");
-	gputs("Gianluca");
+	gputs("Test");
 
     while(1);
 
