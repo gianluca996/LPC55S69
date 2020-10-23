@@ -1,0 +1,6 @@
+fsl_gpio.h:161:20:GPIO_PinWrite	24	static
+fsl_gpio.h:177:20:GPIO_WritePinOutput	24	static
+fsl_gpio.c:75:17:GPIO_GetInstance	24	static
+fsl_gpio.c:93:6:GPIO_PinInit	24	static
+fsl_gpio.c:109:10:GPIO_PortGetInterruptFlags	24	static
+fsl_gpio.c:118:6:GPIO_PortClearInterruptFlags	24	static

@@ -1,0 +1,2 @@
+system_MK22D5.c:118:6:SystemInit	4	static
+system_MK22D5.c:141:6:SystemCoreClockUpdate	16	static
