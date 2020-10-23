@@ -47,6 +47,8 @@
   #35#NEWCODE:,000000, 		Per memorizzare un nuovo codice a 6 cifre
   #35# RESET 				Per resettare la memoria
 
+  Test GitHub
+
  */
 
 
