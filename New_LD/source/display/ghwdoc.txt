@@ -1,0 +1,238 @@
+DOCUMENTATION of low-level drivers.
+-----------------------------------
+
+GHWINIT.C
+---------
+This module contains functions for accessing the LCD controller registers
+used by other low-level functions.
+Any waiting on a LCD busy flag is also done here. If busy waiting
+times out the error flag glcd_err become true. This will terminate
+high-level operations on the display.
+
+This module also instantiate any public data used by other low-level and
+high-level drivers. This includes the default font SYSFONT and, if GBUFFER
+is defined in GDISPCFG.H, the graphic buffer gbuf[].
+
+Public functions used by high-level functions:
+
+SGBOOL ghw_init(void)
+   Initialize the LCD hardware and the low-level data variables.
+
+void ghw_exit(void)
+   Release ressources allocated by ghw_init()
+
+SGUCHAR ghw_err(void)
+   Report the status of glcd_err.
+
+void ghw_puterr(char *str)
+   Initialize the LCD hardware and the low-level data variables
+   and output the message on the center of the display.
+
+void ghw_dispoff(void)
+   Turn display off
+   The display RAM content become invisible but remains unchanged.
+
+void ghw_dispon(void)
+   Turn display on
+   The display RAM content become visible.
+
+SGUCHAR ghw_cont_set(SGUCHAR contrast)
+   Set an absolute contrast level.
+
+SGUCHAR ghw_cont_change(SGCHAR contrast_diff)
+   Make a relative change of contrast level
+
+SGUINT ghw_gbufsize( void )
+   Size of buffer needed to save both the complete screen content and the
+   low-level display states.
+
+SGUCHAR *ghw_save_state( SGUCHAR *buf )
+   Take a snap-shot of the current display screen and states
+
+void ghw_set_state(SGUCHAR *buf, SGUCHAR doinit)
+   Set a new screen state (switch to a new screen)
+
+If GHW_SINGLE_CHIP is defined access is done via user defined
+access functions, otherwise addressing is done via the SG macros.
+
+GHWBLKRW.C
+----------
+This module contains function for copy and paste of a pixel block
+on the display. Any pixel coordinates can be used, and write coordinates
+may be different from read coordinates.
+If GBUFFER is defined the operations are done on the graphic buffer,
+else the operations are done directly on the LCD display.
+
+SGUINT ghw_blksize(GXT ltx, GYT lty, GXT rbx, GYT rby)
+   Calculate the needed buffer size to hold the pixel block information
+
+void ghw_rdblk(GXT ltx, GYT lty, GXT rbx, GYT rby,
+               SGUCHAR *dest, SGUINT bufsize )
+   Read pixel block to buffer.
+
+void ghw_wrblk(GXT ltx, GYT lty, GXT rbx, GYT rby, SGUCHAR *src )
+   Write pixel block from buffer.
+
+void ghw_restoreblk(SGUCHAR *src)
+   Write pixel block from buffer to the same position as it was read.
+
+
+GHWBUF.C
+--------
+This module contain functions for display update when the library is
+compiled in buffer mode (GBUFFER is defined)
+
+void ghw_updatehw(void)
+   Flush data buffer to display. If GBUFFER is not defined this
+   function has no content.
+
+void ghw_setupdate( SGUCHAR update )
+   Activate or deactivate delayed update in buffered mode.
+
+
+GHWFILL.C
+---------
+Contains functions for filling a display area with a pattern. Any
+coordinates can be used. The fill pattern will be aligned to the
+background independent of the used coordinate parameters. The
+fill patterns uses the same horizontal byte convention as the
+high-level functions.
+
+If GBUFFER is defined the operations are done on the graphic buffer,
+else the operations are done directly on the LCD display.
+
+void ghw_fill(GXT ltx, GYT lty, GXT rbx, GYT rby, SGUINT pattern)
+   Make fill operation
+
+void ghw_set_pattern(SGUINT pattern)
+   Prepare pattern for fill (rotate and align to the
+   write mode used by the LCD controller.)
+   This function is only used by other low-level functions.
+
+
+GHWINV.C
+--------
+Contains functions for inverting a display area.
+
+If GBUFFER is defined the operations are done on the graphic buffer,
+else the operations are done directly on the LCD display.
+
+void ghw_invert(GXT ltx, GYT lty, GXT rbx, GYT rby)
+   Make invert operation
+
+
+GHWGSCRL.C
+----------
+Contains a function for scrolling a part of the LCD display content.
+Note that because any rectangular area can be scrolled the hardware
+scroll functions supported by the LCD controller can usually not
+be used,
+
+If GBUFFER is defined the operations are done on the graphic buffer,
+otherwise the operations are done directly on the LCD display.
+
+void ghw_gscroll(GXT ltx, GYT lty, GXT rbx, GYT rby,
+                 GYT lines, SGUINT pattern)
+   Scroll part of the display.
+
+
+GHWPIXEL.C
+----------
+This module contain functions for operations on single pixels.
+If GBUFFER is defined the operations are done on the graphic buffer,
+else the operations are done directly on the LCD display.
+
+void ghw_setpixel(GXT x, GYT y, SGBOOL pixel )
+   Set a pixel to black or white.
+
+SGBOOL ghw_getpixel(GXT x, GYT y)
+   Read the black or white state of a pixel.
+
+
+GHWRETGL.C
+----------
+This module contains driver functions for writing lines or rectangles.
+If GBUFFER is defined the operations are done on the graphic buffer,
+else the operations are done directly on the LCD display.
+
+void ghw_rectangle(GXT ltx, GYT lty, GXT rbx, GYT rby, SGBOOL pixel)
+   Draw a line or a rectangle of black or white pixels.
+
+
+GHWSYMRD.C
+----------
+This module contains driver function for reading to a
+data buffer using the common buffer layout for symbols (and fonts).
+Is used by the high-level symbol functions.
+
+void ghw_rdsym(GXT ltx, GYT lty, GXT rbx, GYT rby,
+               SGUCHAR *dest, GXT bw, SGCHAR mode);
+   Read display memory to a buffer using the common symbol format.
+
+
+GHWSYMWR.C
+----------
+This module contains driver function for writing from a
+data buffer using the common buffer layout for symbols (and fonts).
+Is used by the high-level text and symbol functions.
+
+void ghw_wrsym(GXT ltx, GYT lty, GXT rbx, GYT rby,
+               SGUCHAR *src, GXT bw, SGUCHAR mode)
+   Write a buffer using the common symbol format to display memory.
+
+
+KS7XXSIM.C
+----------
+Simulates the LCD controller operation on the RAM buffer internally on
+a LCD module.
+The content of the simulated RAM buffer is copied to the PC display
+after each update. In DOS mode (compiler dependent) PC video functions
+are used. In WIN32 mode a sockect interface is used to an external
+LCD simulator program.
+Only those LCD controller operations relevant to the LCD driver library
+is simulated.
+
+These functions is activated by low-level functions in
+GHWINIT.C when the GHW_PCSIM compiler switch is defined.
+
+void ghw_cmd_KS07XXsim( SGUCHAR cmd )
+   Simulate command register settings.
+
+void ghw_dcmd_KS07XXsim( SGUCHAR cmd1, SGUCHAR cmd2 )
+   Simulate double command register settings.
+
+void ghw_wrupdate_KS07XXsim( SGUINT x, SGUINT y, SGUCHAR val )
+   Update PC screen.
+
+void ghw_init_KS07XXsim( SGINT dispw, SGINT disph)
+   Initialize simulator
+
+Default function used for output of G_WARNING and G_ERROR messages
+in simulator mode.
+
+void simprintf( SGINT sgstream, const char *fmt, ...)
+
+
+GSIMINTF.C
+----------
+Contains the socket interface to the external LCD simulator program.
+This interface should only be used with WIN32 compilers like
+Borland C++ Builder 5.x or Microsoft Visual C++ 6.x
+This interface should only be activated via the KS07XSIM.C module.
+
+Furthermore it contains these functions for easier simulation of
+a keyboard interface when the LCD simulator has focus.
+Prototyped in gdispcfg.h.
+
+unsigned short GSimKbHit(void)
+   Check for keyboard hit (returns != 0 if hit)
+
+unsigned short GSimKbGet(void)
+   Get a 16 bit key/scan code. Include support for function keys
+   and Ctrl, Alt, Shift keys.
+
+unsigned long GSimTimestamp(void)
+   Simulates a 10ms timestamp counter, using the PC clock.
+   Usefull for making delays in ex. demo applications by testing
+   the difference between two readings.
+
