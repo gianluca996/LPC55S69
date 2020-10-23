@@ -6,7 +6,7 @@
  * Generated linker script file for MK22DX256xxx5
  * Created from linkscript.ldt by FMCreateLinkLibraries
  * Using Freemarker v2.3.23
- * MCUXpresso IDE v11.1.1 [Build 3241] [2020-03-02] on 23-ott-2020 16.07.43
+ * MCUXpresso IDE v11.1.1 [Build 3241] [2020-03-02] on 23-ott-2020 16.19.01
  */
 
 INCLUDE "USB_Log_Insert_Debug_library.ld"

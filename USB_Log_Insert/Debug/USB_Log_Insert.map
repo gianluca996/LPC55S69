@@ -2391,7 +2391,7 @@ END GROUP
                 0x14001000                __top_FLEX_RAM = 0x14001000
                 0x14001000                __top_RAM3 = 0x14001000
 
-.text           0x00000000     0xe954
+.text           0x00000000     0xe924
  FILL mask 0xff
                 0x00000000                __vectors_start__ = ABSOLUTE (.)
  *(SORT_BY_ALIGNMENT(.isr_vector))
@@ -2401,13 +2401,13 @@ END GROUP
                 0x00000144                . = ALIGN (0x4)
                 0x00000144                __section_table_start = .
                 0x00000144                __data_section_table = .
-                0x00000144        0x4 LONG 0xe954 LOADADDR (.data)
+                0x00000144        0x4 LONG 0xe924 LOADADDR (.data)
                 0x00000148        0x4 LONG 0x20000000 ADDR (.data)
                 0x0000014c        0x4 LONG 0x10 SIZEOF (.data)
-                0x00000150        0x4 LONG 0xe954 LOADADDR (.data_RAM2)
+                0x00000150        0x4 LONG 0xe924 LOADADDR (.data_RAM2)
                 0x00000154        0x4 LONG 0x1fffc000 ADDR (.data_RAM2)
                 0x00000158        0x4 LONG 0x0 SIZEOF (.data_RAM2)
-                0x0000015c        0x4 LONG 0xe954 LOADADDR (.data_RAM3)
+                0x0000015c        0x4 LONG 0xe924 LOADADDR (.data_RAM3)
                 0x00000160        0x4 LONG 0x14000000 ADDR (.data_RAM3)
                 0x00000164        0x4 LONG 0x0 SIZEOF (.data_RAM3)
                 0x00000168                __data_section_table_end = .
@@ -3517,130 +3517,129 @@ END GROUP
                 0x0000e20c       0x4c ./sources/host_msd_fatfs.o
                                  0x5c (size before relaxing)
  .rodata.PIT_GetDefaultConfig.str1.4
-                0x0000e258       0x86 ./source/USB_Log.o
- *fill*         0x0000e2de        0x2 ff
+                0x0000e258       0x58 ./source/USB_Log.o
  .rodata.USB_HostEvent.str1.4
-                0x0000e2e0       0x15 ./source/USB_Log.o
- *fill*         0x0000e2f5        0x3 ff
+                0x0000e2b0       0x15 ./source/USB_Log.o
+ *fill*         0x0000e2c5        0x3 ff
  .rodata.USB_HostApplicationInit.str1.4
-                0x0000e2f8       0x25 ./source/USB_Log.o
- *fill*         0x0000e31d        0x3 ff
+                0x0000e2c8       0x25 ./source/USB_Log.o
+ *fill*         0x0000e2ed        0x3 ff
  .rodata.error_trap.str1.4
-                0x0000e320       0x54 ./source/USB_Log.o
+                0x0000e2f0       0x54 ./source/USB_Log.o
  .rodata.app_finalize.str1.4
-                0x0000e374       0x4e ./source/USB_Log.o
- *fill*         0x0000e3c2        0x2 ff
+                0x0000e344       0x4e ./source/USB_Log.o
+ *fill*         0x0000e392        0x2 ff
  .rodata.main.str1.4
-                0x0000e3c4      0x1fc ./source/USB_Log.o
+                0x0000e394      0x1fc ./source/USB_Log.o
                                 0x200 (size before relaxing)
  .rodata.create_name.str1.4
-                0x0000e5c0        0xf ./fatfs/fatfs_source/ff.o
- *fill*         0x0000e5cf        0x1 ff
+                0x0000e590        0xf ./fatfs/fatfs_source/ff.o
+ *fill*         0x0000e59f        0x1 ff
  .rodata.CLOCK_GetMcgExtClkFreq.str1.4
-                0x0000e5d0       0x40 ./drivers/fsl_clock.o
+                0x0000e5a0       0x40 ./drivers/fsl_clock.o
  .rodata.CLOCK_GetOsc0ErClkFreq.str1.4
-                0x0000e610       0x1f ./drivers/fsl_clock.o
- *fill*         0x0000e62f        0x1 ff
+                0x0000e5e0       0x1f ./drivers/fsl_clock.o
+ *fill*         0x0000e5ff        0x1 ff
  .rodata.CLOCK_GetEr32kClkFreq.str1.4
-                0x0000e630       0x20 ./drivers/fsl_clock.o
+                0x0000e600       0x20 ./drivers/fsl_clock.o
  .rodata.CLOCK_GetPll0Freq.str1.4
-                0x0000e650       0x1e ./drivers/fsl_clock.o
- *fill*         0x0000e66e        0x2 ff
+                0x0000e620       0x1e ./drivers/fsl_clock.o
+ *fill*         0x0000e63e        0x2 ff
  .rodata.CLOCK_EnablePll0.str1.4
-                0x0000e670       0x1a ./drivers/fsl_clock.o
- *fill*         0x0000e68a        0x2 ff
+                0x0000e640       0x1a ./drivers/fsl_clock.o
+ *fill*         0x0000e65a        0x2 ff
  .rodata.CLOCK_SetPbeMode.str1.4
-                0x0000e68c       0x1b ./drivers/fsl_clock.o
- *fill*         0x0000e6a7        0x1 ff
+                0x0000e65c       0x1b ./drivers/fsl_clock.o
+ *fill*         0x0000e677        0x1 ff
  .rodata.CLOCK_BootToPeeMode.str1.4
-                0x0000e6a8       0x1b ./drivers/fsl_clock.o
- *fill*         0x0000e6c3        0x1 ff
+                0x0000e678       0x1b ./drivers/fsl_clock.o
+ *fill*         0x0000e693        0x1 ff
  .rodata.fllFactorTable.6047
-                0x0000e6c4       0x10 ./drivers/fsl_clock.o
+                0x0000e694       0x10 ./drivers/fsl_clock.o
  .rodata.s_flashRunCommandFunctionCode
-                0x0000e6d4        0xc ./drivers/fsl_flash.o
+                0x0000e6a4        0xc ./drivers/fsl_flash.o
  .rodata.s_flashCommonBitOperationFunctionCode
-                0x0000e6e0       0x1c ./drivers/fsl_flash.o
+                0x0000e6b0       0x1c ./drivers/fsl_flash.o
  .rodata.kPFlashDensities
-                0x0000e6fc       0x1e ./drivers/fsl_flash.o
-                0x0000e6fc                kPFlashDensities
- *fill*         0x0000e71a        0x2 ff
+                0x0000e6cc       0x1e ./drivers/fsl_flash.o
+                0x0000e6cc                kPFlashDensities
+ *fill*         0x0000e6ea        0x2 ff
  .rodata.GPIO_PinInit.str1.4
-                0x0000e71c       0x18 ./drivers/fsl_gpio.o
+                0x0000e6ec       0x18 ./drivers/fsl_gpio.o
  .rodata.PIT_GetInstance.str1.4
-                0x0000e734       0x32 ./drivers/fsl_pit.o
- *fill*         0x0000e766        0x2 ff
+                0x0000e704       0x32 ./drivers/fsl_pit.o
+ *fill*         0x0000e736        0x2 ff
  .rodata.PIT_Init.str1.4
-                0x0000e768       0x17 ./drivers/fsl_pit.o
- *fill*         0x0000e77f        0x1 ff
+                0x0000e738       0x17 ./drivers/fsl_pit.o
+ *fill*         0x0000e74f        0x1 ff
  .rodata.s_uartBases
-                0x0000e780       0x10 ./drivers/fsl_uart.o
+                0x0000e750       0x10 ./drivers/fsl_uart.o
  .rodata.s_uartClock
-                0x0000e790       0x10 ./drivers/fsl_uart.o
+                0x0000e760       0x10 ./drivers/fsl_uart.o
  .rodata.UART_GetInstance.str1.4
-                0x0000e7a0       0x2c ./drivers/fsl_uart.o
+                0x0000e770       0x2c ./drivers/fsl_uart.o
  .rodata.UART_Init.str1.4
-                0x0000e7cc       0xe3 ./drivers/fsl_uart.o
- *fill*         0x0000e8af        0x1 ff
+                0x0000e79c       0xe3 ./drivers/fsl_uart.o
+ *fill*         0x0000e87f        0x1 ff
  .rodata.UART_GetDefaultConfig.str1.4
-                0x0000e8b0       0x1c ./drivers/fsl_uart.o
+                0x0000e880       0x1c ./drivers/fsl_uart.o
                                  0x19 (size before relaxing)
  .rodata.mcgConfig_BOARD_BootClockRUN
-                0x0000e8cc        0xb ./board/clock_config.o
-                0x0000e8cc                mcgConfig_BOARD_BootClockRUN
- *fill*         0x0000e8d7        0x1 ff
+                0x0000e89c        0xb ./board/clock_config.o
+                0x0000e89c                mcgConfig_BOARD_BootClockRUN
+ *fill*         0x0000e8a7        0x1 ff
  .rodata.simConfig_BOARD_BootClockRUN
-                0x0000e8d8        0x8 ./board/clock_config.o
-                0x0000e8d8                simConfig_BOARD_BootClockRUN
+                0x0000e8a8        0x8 ./board/clock_config.o
+                0x0000e8a8                simConfig_BOARD_BootClockRUN
  .rodata.oscConfig_BOARD_BootClockRUN
-                0x0000e8e0        0x8 ./board/clock_config.o
-                0x0000e8e0                oscConfig_BOARD_BootClockRUN
+                0x0000e8b0        0x8 ./board/clock_config.o
+                0x0000e8b0                oscConfig_BOARD_BootClockRUN
  .rodata.__num_Ciob_streams
-                0x0000e8e8        0x4 c:/nxp/mcuxpressoide_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libcr_semihost_nf.a(__ciob.o)
-                0x0000e8e8                __num_Ciob_streams
+                0x0000e8b8        0x4 c:/nxp/mcuxpressoide_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libcr_semihost_nf.a(__ciob.o)
+                0x0000e8b8                __num_Ciob_streams
  .rodata.__assertion_failed.str1.1
-                0x0000e8ec       0x15 c:/nxp/mcuxpressoide_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libcr_semihost_nf.a(_cr_assert.o)
+                0x0000e8bc       0x15 c:/nxp/mcuxpressoide_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libcr_semihost_nf.a(_cr_assert.o)
  .rodata._Csys_alloc.str1.1
-                0x0000e901       0x18 c:/nxp/mcuxpressoide_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libcr_c.a(alloc.o)
+                0x0000e8d1       0x18 c:/nxp/mcuxpressoide_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libcr_c.a(alloc.o)
  .rodata._initio.str1.1
-                0x0000e919        0x4 c:/nxp/mcuxpressoide_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libcr_c.a(initio.o)
+                0x0000e8e9        0x4 c:/nxp/mcuxpressoide_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libcr_c.a(initio.o)
  .rodata.__vfprintf.str1.1
-                0x0000e91d       0x35 c:/nxp/mcuxpressoide_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libcr_c.a(printf.o)
+                0x0000e8ed       0x35 c:/nxp/mcuxpressoide_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libcr_c.a(printf.o)
                                  0x38 (size before relaxing)
-                0x0000e954                . = ALIGN (0x4)
- *fill*         0x0000e952        0x2 ff
+                0x0000e924                . = ALIGN (0x4)
+ *fill*         0x0000e922        0x2 ff
 
-.glue_7         0x0000e954        0x0
- .glue_7        0x0000e954        0x0 linker stubs
+.glue_7         0x0000e924        0x0
+ .glue_7        0x0000e924        0x0 linker stubs
 
-.glue_7t        0x0000e954        0x0
- .glue_7t       0x0000e954        0x0 linker stubs
+.glue_7t        0x0000e924        0x0
+ .glue_7t       0x0000e924        0x0 linker stubs
 
-.vfp11_veneer   0x0000e954        0x0
- .vfp11_veneer  0x0000e954        0x0 linker stubs
+.vfp11_veneer   0x0000e924        0x0
+ .vfp11_veneer  0x0000e924        0x0 linker stubs
 
-.v4_bx          0x0000e954        0x0
- .v4_bx         0x0000e954        0x0 linker stubs
+.v4_bx          0x0000e924        0x0
+ .v4_bx         0x0000e924        0x0 linker stubs
 
-.iplt           0x0000e954        0x0
- .iplt          0x0000e954        0x0 ./usb/host/class/usb_host_hub.o
+.iplt           0x0000e924        0x0
+ .iplt          0x0000e924        0x0 ./usb/host/class/usb_host_hub.o
 
-.rel.dyn        0x0000e954        0x0
- .rel.iplt      0x0000e954        0x0 ./usb/host/class/usb_host_hub.o
+.rel.dyn        0x0000e924        0x0
+ .rel.iplt      0x0000e924        0x0 ./usb/host/class/usb_host_hub.o
 
 .ARM.extab
  *(SORT_BY_ALIGNMENT(.ARM.extab*) SORT_BY_ALIGNMENT(.gnu.linkonce.armextab.*))
 
-.ARM.exidx      0x0000e954        0x0
-                0x0000e954                __exidx_start = .
+.ARM.exidx      0x0000e924        0x0
+                0x0000e924                __exidx_start = .
  *(SORT_BY_ALIGNMENT(.ARM.exidx*) SORT_BY_ALIGNMENT(.gnu.linkonce.armexidx.*))
-                0x0000e954                __exidx_end = .
-                0x0000e954                _etext = .
+                0x0000e924                __exidx_end = .
+                0x0000e924                _etext = .
 
 .m_usb_data
  *(SORT_BY_ALIGNMENT(m_usb_bdt))
 
-.data_RAM2      0x1fffc000        0x0 load address 0x0000e954
+.data_RAM2      0x1fffc000        0x0 load address 0x0000e924
  FILL mask 0xff
                 [!provide]                PROVIDE (__start_data_RAM2 = .)
                 [!provide]                PROVIDE (__start_data_SRAM_LOWER = .)
@@ -3654,7 +3653,7 @@ END GROUP
                 [!provide]                PROVIDE (__end_data_RAM2 = .)
                 [!provide]                PROVIDE (__end_data_SRAM_LOWER = .)
 
-.data_RAM3      0x14000000        0x0 load address 0x0000e954
+.data_RAM3      0x14000000        0x0 load address 0x0000e924
  FILL mask 0xff
                 [!provide]                PROVIDE (__start_data_RAM3 = .)
                 [!provide]                PROVIDE (__start_data_FLEX_RAM = .)
@@ -3675,7 +3674,7 @@ END GROUP
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _end_uninit_RESERVED = .
 
-.data           0x20000000       0x10 load address 0x0000e954
+.data           0x20000000       0x10 load address 0x0000e924
  FILL mask 0xff
                 0x20000000                _data = .
                 [!provide]                PROVIDE (__start_data_RAM = .)
@@ -3701,7 +3700,7 @@ END GROUP
                 [!provide]                PROVIDE (__end_data_RAM = .)
                 [!provide]                PROVIDE (__end_data_SRAM_UPPER = .)
 
-.igot.plt       0x20000010        0x0 load address 0x0000e964
+.igot.plt       0x20000010        0x0 load address 0x0000e934
  .igot.plt      0x20000010        0x0 ./usb/host/class/usb_host_hub.o
 
 .bss_RAM2       0x1fffc000        0x0
@@ -3906,8 +3905,8 @@ END GROUP
                 0x20003c00                . = ALIGN (0x4)
                 0x20004000                _vStackTop = (. + _StackSize)
                 0x00000000                _image_start = LOADADDR (.text)
-                0x0000e964                _image_end = (LOADADDR (.data) + SIZEOF (.data))
-                0x0000e964                _image_size = (_image_end - _image_start)
+                0x0000e934                _image_end = (LOADADDR (.data) + SIZEOF (.data))
+                0x0000e934                _image_size = (_image_end - _image_start)
 OUTPUT(USB_Log_Insert.axf elf32-littlearm)
 
 .debug_info     0x00000000    0x193b8
@@ -4043,7 +4042,7 @@ OUTPUT(USB_Log_Insert.axf elf32-littlearm)
  .debug_ranges  0x000010a0       0x20 ./board/pin_mux.o
  .debug_ranges  0x000010c0       0x18 ./CMSIS/system_MK22D5.o
 
-.debug_macro    0x00000000     0x3c1d
+.debug_macro    0x00000000     0x3c1f
  .debug_macro   0x00000000      0x154 ./usb/host/class/usb_host_hub.o
  .debug_macro   0x00000154       0xa4 ./usb/host/class/usb_host_hub.o
  .debug_macro   0x000001f8       0xd8 ./usb/host/class/usb_host_hub.o
@@ -4072,30 +4071,30 @@ OUTPUT(USB_Log_Insert.axf elf32-littlearm)
  .debug_macro   0x00001966       0xdb ./sources/host_msd_fatfs.o
  .debug_macro   0x00001a41       0xb2 ./sources/host_msd_fatfs.o
  .debug_macro   0x00001af3       0x10 ./sources/host_msd_fatfs.o
- .debug_macro   0x00001b03      0x225 ./source/USB_Log.o
- .debug_macro   0x00001d28      0xac6 ./source/USB_Log.o
- .debug_macro   0x000027ee       0x49 ./source/USB_Log.o
- .debug_macro   0x00002837       0x10 ./source/USB_Log.o
- .debug_macro   0x00002847       0x22 ./source/USB_Log.o
- .debug_macro   0x00002869       0x11 ./source/semihost_hardfault.o
- .debug_macro   0x0000287a      0x15b ./osa/usb_osa_bm.o
- .debug_macro   0x000029d5       0x22 ./osa/usb_osa_bm.o
- .debug_macro   0x000029f7      0x186 ./fatfs/fatfs_source/diskio.o
- .debug_macro   0x00002b7d      0x483 ./fatfs/fatfs_source/ff.o
- .debug_macro   0x00003000       0xe2 ./fatfs/fatfs_source/ff.o
- .debug_macro   0x000030e2      0x1a0 ./drivers/fsl_clock.o
- .debug_macro   0x00003282      0x352 ./drivers/fsl_flash.o
- .debug_macro   0x000035d4       0x43 ./drivers/fsl_flash.o
- .debug_macro   0x00003617       0xf0 ./drivers/fsl_gpio.o
- .debug_macro   0x00003707       0xf0 ./drivers/fsl_pit.o
- .debug_macro   0x000037f7       0xf6 ./drivers/fsl_uart.o
- .debug_macro   0x000038ed       0x45 ./board/board.o
- .debug_macro   0x00003932      0x131 ./board/clock_config.o
- .debug_macro   0x00003a63       0x16 ./board/clock_config.o
- .debug_macro   0x00003a79      0x10c ./board/pin_mux.o
- .debug_macro   0x00003b85       0x98 ./CMSIS/system_MK22D5.o
+ .debug_macro   0x00001b03      0x227 ./source/USB_Log.o
+ .debug_macro   0x00001d2a      0xac6 ./source/USB_Log.o
+ .debug_macro   0x000027f0       0x49 ./source/USB_Log.o
+ .debug_macro   0x00002839       0x10 ./source/USB_Log.o
+ .debug_macro   0x00002849       0x22 ./source/USB_Log.o
+ .debug_macro   0x0000286b       0x11 ./source/semihost_hardfault.o
+ .debug_macro   0x0000287c      0x15b ./osa/usb_osa_bm.o
+ .debug_macro   0x000029d7       0x22 ./osa/usb_osa_bm.o
+ .debug_macro   0x000029f9      0x186 ./fatfs/fatfs_source/diskio.o
+ .debug_macro   0x00002b7f      0x483 ./fatfs/fatfs_source/ff.o
+ .debug_macro   0x00003002       0xe2 ./fatfs/fatfs_source/ff.o
+ .debug_macro   0x000030e4      0x1a0 ./drivers/fsl_clock.o
+ .debug_macro   0x00003284      0x352 ./drivers/fsl_flash.o
+ .debug_macro   0x000035d6       0x43 ./drivers/fsl_flash.o
+ .debug_macro   0x00003619       0xf0 ./drivers/fsl_gpio.o
+ .debug_macro   0x00003709       0xf0 ./drivers/fsl_pit.o
+ .debug_macro   0x000037f9       0xf6 ./drivers/fsl_uart.o
+ .debug_macro   0x000038ef       0x45 ./board/board.o
+ .debug_macro   0x00003934      0x131 ./board/clock_config.o
+ .debug_macro   0x00003a65       0x16 ./board/clock_config.o
+ .debug_macro   0x00003a7b      0x10c ./board/pin_mux.o
+ .debug_macro   0x00003b87       0x98 ./CMSIS/system_MK22D5.o
 
-.debug_line     0x00000000    0x11edf
+.debug_line     0x00000000    0x11d41
  .debug_line    0x00000000      0x8b8 ./usb/host/class/usb_host_hub.o
  .debug_line    0x000008b8      0xead ./usb/host/class/usb_host_hub_app.o
  .debug_line    0x00001765      0xd7d ./usb/host/class/usb_host_msd.o
@@ -4107,22 +4106,22 @@ OUTPUT(USB_Log_Insert.axf elf32-littlearm)
  .debug_line    0x00006a53      0x717 ./startup/startup_mk22d5.o
  .debug_line    0x0000716a      0x81f ./sources/fsl_usb_disk_bm.o
  .debug_line    0x00007989      0xd73 ./sources/host_msd_fatfs.o
- .debug_line    0x000086fc     0x1034 ./source/USB_Log.o
- .debug_line    0x00009730       0x5a ./source/semihost_hardfault.o
- .debug_line    0x0000978a      0xa3a ./osa/usb_osa_bm.o
- .debug_line    0x0000a1c4      0x6ec ./fatfs/fatfs_source/diskio.o
- .debug_line    0x0000a8b0     0x2b01 ./fatfs/fatfs_source/ff.o
- .debug_line    0x0000d3b1     0x13e6 ./drivers/fsl_clock.o
- .debug_line    0x0000e797     0x127d ./drivers/fsl_flash.o
- .debug_line    0x0000fa14      0x3b6 ./drivers/fsl_gpio.o
- .debug_line    0x0000fdca      0x38e ./drivers/fsl_pit.o
- .debug_line    0x00010158     0x10de ./drivers/fsl_uart.o
- .debug_line    0x00011236      0x180 ./board/board.o
- .debug_line    0x000113b6      0x41a ./board/clock_config.o
- .debug_line    0x000117d0      0x3a3 ./board/pin_mux.o
- .debug_line    0x00011b73      0x36c ./CMSIS/system_MK22D5.o
+ .debug_line    0x000086fc      0xe96 ./source/USB_Log.o
+ .debug_line    0x00009592       0x5a ./source/semihost_hardfault.o
+ .debug_line    0x000095ec      0xa3a ./osa/usb_osa_bm.o
+ .debug_line    0x0000a026      0x6ec ./fatfs/fatfs_source/diskio.o
+ .debug_line    0x0000a712     0x2b01 ./fatfs/fatfs_source/ff.o
+ .debug_line    0x0000d213     0x13e6 ./drivers/fsl_clock.o
+ .debug_line    0x0000e5f9     0x127d ./drivers/fsl_flash.o
+ .debug_line    0x0000f876      0x3b6 ./drivers/fsl_gpio.o
+ .debug_line    0x0000fc2c      0x38e ./drivers/fsl_pit.o
+ .debug_line    0x0000ffba     0x10de ./drivers/fsl_uart.o
+ .debug_line    0x00011098      0x180 ./board/board.o
+ .debug_line    0x00011218      0x41a ./board/clock_config.o
+ .debug_line    0x00011632      0x3a3 ./board/pin_mux.o
+ .debug_line    0x000119d5      0x36c ./CMSIS/system_MK22D5.o
 
-.debug_str      0x00000000    0x69556
+.debug_str      0x00000000    0x69528
  .debug_str     0x00000000    0x5caae ./usb/host/class/usb_host_hub.o
                               0x5cc0a (size before relaxing)
  .debug_str     0x0005caae      0xe76 ./usb/host/class/usb_host_hub_app.o
@@ -4145,33 +4144,33 @@ OUTPUT(USB_Log_Insert.axf elf32-littlearm)
                               0x5cee0 (size before relaxing)
  .debug_str     0x000614d9      0x84f ./sources/host_msd_fatfs.o
                               0x5db21 (size before relaxing)
- .debug_str     0x00061d28     0x239a ./source/USB_Log.o
-                              0x5f0aa (size before relaxing)
- .debug_str     0x000640c2       0x1f ./source/semihost_hardfault.o
+ .debug_str     0x00061d28     0x236c ./source/USB_Log.o
+                              0x5f07c (size before relaxing)
+ .debug_str     0x00064094       0x1f ./source/semihost_hardfault.o
                                0x2ec4 (size before relaxing)
- .debug_str     0x000640e1      0x46b ./osa/usb_osa_bm.o
+ .debug_str     0x000640b3      0x46b ./osa/usb_osa_bm.o
                               0x5c499 (size before relaxing)
- .debug_str     0x0006454c       0x5b ./fatfs/fatfs_source/diskio.o
+ .debug_str     0x0006451e       0x5b ./fatfs/fatfs_source/diskio.o
                               0x5c5e0 (size before relaxing)
- .debug_str     0x000645a7      0xe20 ./fatfs/fatfs_source/ff.o
+ .debug_str     0x00064579      0xe20 ./fatfs/fatfs_source/ff.o
                                0x4654 (size before relaxing)
- .debug_str     0x000653c7     0x1489 ./drivers/fsl_clock.o
+ .debug_str     0x00065399     0x1489 ./drivers/fsl_clock.o
                               0x5ad51 (size before relaxing)
- .debug_str     0x00066850     0x2062 ./drivers/fsl_flash.o
+ .debug_str     0x00066822     0x2062 ./drivers/fsl_flash.o
                               0x5be12 (size before relaxing)
- .debug_str     0x000688b2       0xa1 ./drivers/fsl_gpio.o
+ .debug_str     0x00068884       0xa1 ./drivers/fsl_gpio.o
                               0x59497 (size before relaxing)
- .debug_str     0x00068953       0x50 ./drivers/fsl_pit.o
+ .debug_str     0x00068925       0x50 ./drivers/fsl_pit.o
                               0x595a6 (size before relaxing)
- .debug_str     0x000689a3      0x794 ./drivers/fsl_uart.o
+ .debug_str     0x00068975      0x794 ./drivers/fsl_uart.o
                               0x5a716 (size before relaxing)
- .debug_str     0x00069137       0x28 ./board/board.o
+ .debug_str     0x00069109       0x28 ./board/board.o
                                0x45d1 (size before relaxing)
- .debug_str     0x0006915f      0x306 ./board/clock_config.o
+ .debug_str     0x00069131      0x306 ./board/clock_config.o
                               0x59b32 (size before relaxing)
- .debug_str     0x00069465       0x45 ./board/pin_mux.o
+ .debug_str     0x00069437       0x45 ./board/pin_mux.o
                               0x5924f (size before relaxing)
- .debug_str     0x000694aa       0xac ./CMSIS/system_MK22D5.o
+ .debug_str     0x0006947c       0xac ./CMSIS/system_MK22D5.o
                               0x581fc (size before relaxing)
 
 .comment        0x00000000       0xef
